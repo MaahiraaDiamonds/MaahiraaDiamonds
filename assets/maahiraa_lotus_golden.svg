@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 376 376" width="376" height="376">
+  <title>Maahiraa Diamonds – Lotus Emblem</title>
+
+  <defs>
+    <linearGradient id="gA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#E8C84A"/>
+      <stop offset="50%"  stop-color="#C8980A"/>
+      <stop offset="100%" stop-color="#8A6808"/>
+    </linearGradient>
+    <linearGradient id="gB" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#D4A820"/>
+      <stop offset="100%" stop-color="#F0D860"/>
+    </linearGradient>
+    <linearGradient id="petal1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FDF0B0"/>
+      <stop offset="40%"  stop-color="#D4A020"/>
+      <stop offset="100%" stop-color="#8A5E04"/>
+    </linearGradient>
+    <linearGradient id="petal2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#F5E080"/>
+      <stop offset="50%"  stop-color="#C8920A"/>
+      <stop offset="100%" stop-color="#7A4E02"/>
+    </linearGradient>
+    <linearGradient id="cGem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#D8EEFF"/>
+      <stop offset="50%"  stop-color="#90C0E8"/>
+      <stop offset="100%" stop-color="#3870B0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer guide rings — centred at 188,188 -->
+  <circle cx="188" cy="188" r="155" fill="none" stroke="#C8980A" stroke-width="0.6" opacity="0.5"/>
+  <circle cx="188" cy="188" r="135" fill="none" stroke="#E8C84A" stroke-width="0.4" opacity="0.35"/>
+
+  <!-- ══ LOTUS PETALS + CENTRAL GEM ══
+       All petal geometry is unchanged from the original,
+       just translated so the centre is (188,188) instead of (340,188) -->
+  <g transform="translate(188,188)">
+
+    <!-- 8 cardinal petals (rotate 0,90,180,270) — large dark kite shapes -->
+    <g transform="rotate(0)">
+      <polygon points="0,-130 18,-80 0,-50 -18,-80" fill="url(#petal1)" stroke="url(#gA)" stroke-width="0.8"/>
+      <polygon points="0,-50 18,-80 0,-30 -18,-80"  fill="url(#gA)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.6"/>
+    </g>
+    <g transform="rotate(45)">
+      <polygon points="0,-115 15,-72 0,-45 -15,-72" fill="url(#petal2)" stroke="url(#gB)" stroke-width="0.8" opacity="0.85"/>
+      <polygon points="0,-45 15,-72 0,-28 -15,-72"  fill="url(#gB)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.5"/>
+    </g>
+    <g transform="rotate(90)">
+      <polygon points="0,-130 18,-80 0,-50 -18,-80" fill="url(#petal1)" stroke="url(#gA)" stroke-width="0.8"/>
+      <polygon points="0,-50 18,-80 0,-30 -18,-80"  fill="url(#gA)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.6"/>
+    </g>
+    <g transform="rotate(135)">
+      <polygon points="0,-115 15,-72 0,-45 -15,-72" fill="url(#petal2)" stroke="url(#gB)" stroke-width="0.8" opacity="0.85"/>
+      <polygon points="0,-45 15,-72 0,-28 -15,-72"  fill="url(#gB)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.5"/>
+    </g>
+    <g transform="rotate(180)">
+      <polygon points="0,-130 18,-80 0,-50 -18,-80" fill="url(#petal1)" stroke="url(#gA)" stroke-width="0.8"/>
+      <polygon points="0,-50 18,-80 0,-30 -18,-80"  fill="url(#gA)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.6"/>
+    </g>
+    <g transform="rotate(225)">
+      <polygon points="0,-115 15,-72 0,-45 -15,-72" fill="url(#petal2)" stroke="url(#gB)" stroke-width="0.8" opacity="0.85"/>
+      <polygon points="0,-45 15,-72 0,-28 -15,-72"  fill="url(#gB)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.5"/>
+    </g>
+    <g transform="rotate(270)">
+      <polygon points="0,-130 18,-80 0,-50 -18,-80" fill="url(#petal1)" stroke="url(#gA)" stroke-width="0.8"/>
+      <polygon points="0,-50 18,-80 0,-30 -18,-80"  fill="url(#gA)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.6"/>
+    </g>
+    <g transform="rotate(315)">
+      <polygon points="0,-115 15,-72 0,-45 -15,-72" fill="url(#petal2)" stroke="url(#gB)" stroke-width="0.8" opacity="0.85"/>
+      <polygon points="0,-45 15,-72 0,-28 -15,-72"  fill="url(#gB)"     stroke="#8A6808"   stroke-width="0.5" opacity="0.5"/>
+    </g>
+
+    <!-- Central diamond gem -->
+    <polygon points="0,-44 30,0 0,44 -30,0"  fill="url(#cGem)" stroke="url(#gA)" stroke-width="1"/>
+    <polygon points="0,-44 30,0 0,10"         fill="#DAEEFF"    stroke="url(#gA)" stroke-width="0.5" opacity="0.7"/>
+    <polygon points="0,-44 -30,0 0,10"        fill="#FFFFFF"    stroke="url(#gA)" stroke-width="0.5" opacity="0.5"/>
+    <polygon points="30,0 0,44 0,10"          fill="#5888C0"    stroke="url(#gA)" stroke-width="0.5" opacity="0.6"/>
+    <polygon points="-30,0 0,44 0,10"         fill="#3868A8"    stroke="url(#gA)" stroke-width="0.5" opacity="0.6"/>
+
+    <!-- Gold ring around central gem -->
+    <circle cx="0" cy="0" r="55" fill="none" stroke="url(#gA)" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#C8980A"   stroke-width="0.3" opacity="0.5"/>
+
+    <!-- Axis lines inside ring -->
+    <g stroke="url(#gA)" stroke-width="0.5" opacity="0.4">
+      <line x1="0"   y1="-55" x2="0"   y2="55"/>
+      <line x1="-55" y1="0"   x2="55"  y2="0"/>
+      <line x1="-39" y1="-39" x2="39"  y2="39"/>
+      <line x1="39"  y1="-39" x2="-39" y2="39"/>
+    </g>
+  </g>
+
+</svg>

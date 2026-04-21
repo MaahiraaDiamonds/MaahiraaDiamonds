@@ -246,12 +246,28 @@ testimonials.forEach((_, index) => {
 
 startTestimonials();
 
-contactForm.addEventListener("submit", (event) => {
+contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const data = new FormData(contactForm);
   const name = data.get("name");
-  formStatus.textContent = `Thank you, ${name}. Your enquiry is ready for the Maahiraa Diamonds team.`;
-  contactForm.reset();
+  formStatus.textContent = "Sending...";
+
+  try {
+    const response = await fetch("https://formspree.io/f/myklnkzp", {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.ok) {
+      formStatus.textContent = `Thank you, ${name}. Your enquiry has been sent to the Maahiraa Diamonds team.`;
+      contactForm.reset();
+    } else {
+      formStatus.textContent = "Something went wrong. Please email us directly at founder@maahiraadiamonds.com";
+    }
+  } catch {
+    formStatus.textContent = "Network error. Please email us directly at founder@maahiraadiamonds.com";
+  }
 });
 
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
