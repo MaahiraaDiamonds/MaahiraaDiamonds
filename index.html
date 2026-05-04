@@ -1,354 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Maahiraa Diamonds crafts premium gold, silver, and diamond jewellery with refined artistry, certified quality, and modern luxury.">
-  <meta name="theme-color" content="#050505">
-  <title>Maahiraa Diamonds | Luxury Jewellery Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maahiraa Diamonds - Exquisite fine jewellery by Chirag Puri. IGI, GIA and HRD certified diamonds in 14K and 18K gold. Bespoke custom designs. Mumbai." />
+  <meta name="theme-color" content="#FAFAF7" />
+  <title>Maahiraa Diamonds | Elegance Meets Eternity</title>
+  <link rel="icon" type="image/png" href="assets/md-logo-no-bg.png" />
+  <link rel="apple-touch-icon" href="assets/md-logo-no-bg.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" data-header>
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="Maahiraa Diamonds home">
-        <img src="assets/maahiraa_diamonds_logo_v2.svg" alt="" width="42" height="42">
-        <span>Maahiraa Diamonds</span>
+  <!-- Navigation -->
+  <header class="nav-header" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" aria-label="Maahiraa Diamonds Home">
+        <img src="assets/md-logo-no-bg.png" alt="" width="72" height="72" aria-hidden="true" />
+        <span class="nav-brand">Maahiraa Diamonds</span>
       </a>
-
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-nav-toggle>
-        <span></span>
-        <span></span>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li><a href="#contact" class="nav-cta">Connect</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span>
       </button>
-
-      <div class="nav-panel" data-nav-panel>
-        <a href="#about">About</a>
-        <a href="#collections">Collections</a>
-        <a href="#featured">Featured</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+    </div>
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li><a href="#contact">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main id="main">
-    <section class="hero diamond-hero" id="home" aria-label="Maahiraa Diamonds introduction">
-      <video class="hero-media hero-video" autoplay muted loop playsinline poster="assets/collection/diamond-crown-ring-detail.jpeg" aria-label="Maahiraa Diamonds jewellery motion showcase">
-        <source src="assets/collection/hero-background.mp4" type="video/mp4">
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <p class="eyebrow">The diamond edit</p>
-        <h1>Maahiraa Diamonds</h1>
-        <p class="hero-copy">Precision-cut brilliance, sculpted gold, and fine jewellery made to feel impossibly personal.</p>
-        <a class="button button-primary" href="#collections">Explore Collection</a>
+  <main id="main-content">
+
+    <!-- ═══════ HERO ═══════ -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-media" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="metadata" class="hero-video">
+          <source src="assets/collection/hero-background.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
       </div>
-      <div class="hero-product reveal" aria-hidden="true">
-        <span class="diamond-facet facet-a"></span>
-        <span class="diamond-facet facet-b"></span>
-        <img src="assets/collection/diamond-crown-ring-detail.jpeg" alt="">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Fine Jewellery &nbsp;|&nbsp; Est. Mumbai</p>
+        <h1 class="hero-title">Maahiraa<br /><em>Diamonds</em></h1>
+        <p class="hero-sub">Where every gem carries a story of eternal brilliance</p>
+        <a href="#collection" class="btn-outline">Explore Collection</a>
       </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
-        <span></span>
-        Discover
-      </a>
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll</span>
+      </div>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="section-inner split">
-        <div class="image-frame reveal">
-          <img src="assets/collection/ruby-statement-necklace.jpeg" alt="Ruby and diamond necklace worn as a statement jewellery piece" loading="lazy">
-        </div>
-        <div class="section-copy reveal">
-          <p class="eyebrow">Crafted with intention</p>
-          <h2>Where trust meets timeless artistry.</h2>
-          <p>Maahiraa Diamonds brings together meticulous craftsmanship, responsibly selected materials, and a refined eye for contemporary luxury. Each piece is designed to carry presence without excess, made for clients who value purity, detail, and quiet distinction.</p>
-          <p>From daily signatures to ceremonial statements, our jewellery is created with the care of an atelier and the assurance of a trusted fine jewellery house.</p>
-          <div class="stats" aria-label="Brand highlights">
-            <div>
-              <strong>18K+</strong>
-              <span>Gold selections</span>
-            </div>
-            <div>
-              <strong>925</strong>
-              <span>Silver artistry</span>
-            </div>
-            <div>
-              <strong>IGI</strong>
-              <span>Certified diamonds</span>
-            </div>
+    <!-- Feature Strip -->
+    <div class="ticker" aria-label="Maahiraa Diamonds features">
+      <div class="ticker-track">
+        <span>IGI Certified</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>GIA Certified</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>HRD Certified</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>14K Gold</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>18K Gold</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>Custom Design</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>Bespoke Creations</span><span class="ticker-dot" aria-hidden="true">◆</span>
+        <span>Master Craftsmanship</span>
+      </div>
+    </div>
+
+    <!-- ═══════ MANIFESTO ═══════ -->
+    <section class="manifesto">
+      <div class="manifesto-inner reveal">
+        <p class="manifesto-label">Our Philosophy</p>
+        <blockquote class="manifesto-quote">
+          "Where diamonds become stories<br />
+          and every piece becomes a legacy."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ═══════ ABOUT / STORY ═══════ -->
+    <section class="about" id="about">
+      <div class="about-image reveal">
+        <img
+          src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=900&q=85"
+          alt="Model wearing a fine diamond necklace"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-content reveal">
+        <p class="eyebrow">Our Story</p>
+        <h2>Born from a passion<br /><em>for pure brilliance</em></h2>
+        <p>Founded by <strong>Chirag Puri</strong>, Maahiraa Diamonds is a fine jewellery atelier rooted in the belief that a truly exquisite piece transcends time. Born from a deep reverence for the art of goldsmithing, every design is an expression of emotion - refined, intentional, and deeply personal.</p>
+        <p class="about-p2">We work exclusively with IGI, GIA, and HRD certified diamonds set in the finest 14K and 18K gold, collaborating with master craftsmen to bring each vision to life. We also offer fully custom-designed pieces crafted to your unique vision. From intimate solitaires to bold statement necklaces, Maahiraa Diamonds is where artistry meets authenticity.</p>
+        <div class="about-stats" aria-label="Brand credentials">
+          <div class="stat">
+            <span class="stat-num stat-num--group">IGI | GIA | HRD</span>
+            <span class="stat-label">Certified Diamonds</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat-num stat-num--group">14K | 18K</span>
+            <span class="stat-label">Gold</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat-num">✦</span>
+            <span class="stat-label">Custom Design</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section collections-section diamond-section" id="collections">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Collections</p>
-        <h2>Designed around light, line, and presence.</h2>
+    <!-- ═══════ DIAMOND CUTS ═══════ -->
+    <section class="cuts" id="cuts" aria-label="Diamond cuts">
+      <div class="cuts-header reveal">
+        <p class="eyebrow">The Art of the Cut</p>
+        <h2>Choose your <em>signature cut</em></h2>
+        <p class="cuts-sub">Every diamond cut tells a different story. From the timeless Round Brilliant to the romantic Heart, we source and set each shape with uncompromising precision.</p>
       </div>
+      <div class="cuts-grid" role="list">
 
-      <div class="collection-feature reveal">
-        <div>
-          <p class="eyebrow">New atelier selection</p>
-          <h3>Diamond forms with a modern Indian soul.</h3>
-          <p>Each selected Maahiraa piece is photographed on deep black so the stones, setting, and silhouette stay at the centre of the experience.</p>
-        </div>
-        <button class="button button-ghost" type="button" data-lightbox="assets/collection/emerald-drop-necklace.jpeg">View hero piece</button>
-      </div>
-
-      <div class="collection-slider reveal" data-collection-slider>
-        <div class="slider-controls" aria-label="Collection slider controls">
-          <button class="slider-arrow" type="button" aria-label="Previous collection design" data-slider-prev>Prev</button>
-          <button class="slider-arrow" type="button" aria-label="Next collection design" data-slider-next>Next</button>
-        </div>
-
-        <div class="collection-viewport" data-slider-viewport tabindex="0" aria-label="Browse Maahiraa Diamonds collection designs">
-          <div class="collection-track" data-slider-track>
-            <article class="collection-slide">
-              <button class="collection-tile" type="button" data-lightbox="assets/collection/diamond-riviera-necklace.jpeg" aria-label="Open Diamond necklaces image">
-                <img src="assets/collection/diamond-riviera-necklace.jpeg" alt="Diamond necklace with floral centre detail" loading="lazy">
-                <span><small>Signature line</small>Diamond Necklaces</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design one">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/diamond-crown-ring-detail.jpeg">
-                  <source src="assets/collection/collection-motion-01.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Atelier Ring</span>
-              </button>
-            </article>
-            <article class="collection-slide">
-              <button class="collection-tile" type="button" data-lightbox="assets/collection/emerald-halo-ring.jpeg" aria-label="Open Emerald ring image">
-                <img src="assets/collection/emerald-halo-ring.jpeg" alt="Emerald halo ring with diamond petals" loading="lazy">
-                <span><small>Emerald focus</small>Statement Rings</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design two">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/emerald-drop-necklace.jpeg">
-                  <source src="assets/collection/collection-motion-02.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Emerald Glow</span>
-              </button>
-            </article>
-            <article class="collection-slide">
-              <button class="collection-tile" type="button" data-lightbox="assets/collection/diamond-bracelet.jpeg" aria-label="Open Diamond bracelet image">
-                <img src="assets/collection/diamond-bracelet.jpeg" alt="Diamond bracelet with rose gold finish" loading="lazy">
-                <span><small>Daily icons</small>Bracelets</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design three">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/blue-sapphire-ring.jpeg">
-                  <source src="assets/collection/collection-motion-03.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Sapphire Cut</span>
-              </button>
-            </article>
-            <article class="collection-slide">
-              <button class="collection-tile" type="button" data-lightbox="assets/collection/ruby-statement-necklace.jpeg" aria-label="Open Ruby necklace image">
-                <img src="assets/collection/ruby-statement-necklace.jpeg" alt="Ruby statement necklace worn with diamond detailing" loading="lazy">
-                <span><small>Occasion pieces</small>High Jewellery</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design four">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/marquise-gold-ring.jpeg">
-                  <source src="assets/collection/collection-motion-04.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Gold Detail</span>
-              </button>
-            </article>
-            <article class="collection-slide">
-              <button class="collection-tile" type="button" data-lightbox="assets/collection/rose-gold-bracelet.jpeg" aria-label="Open Rose gold bracelet image">
-                <img src="assets/collection/rose-gold-bracelet.jpeg" alt="Rose gold bracelet with diamond detailing" loading="lazy">
-                <span><small>Bracelet edit</small>Rose Gold</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design five">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/diamond-riviera-necklace.jpeg">
-                  <source src="assets/collection/collection-motion-05.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Necklace Flow</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design six">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/ruby-statement-necklace.jpeg">
-                  <source src="assets/collection/collection-motion-06.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Ruby Radiance</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design seven">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/rose-gold-bracelet.jpeg">
-                  <source src="assets/collection/collection-motion-07.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Bracelet Light</span>
-              </button>
-            </article>
-            <article class="collection-slide collection-slide-video">
-              <button class="collection-tile video-tile" type="button" data-video-card aria-label="Play Atelier motion design eight">
-                <video muted loop playsinline preload="metadata" poster="assets/collection/diamond-crown-ring-detail.jpeg">
-                  <source src="assets/collection/collection-motion-08.mp4" type="video/mp4">
-                </video>
-                <span><small>Motion preview</small>Diamond Finale</span>
-              </button>
-            </article>
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="40" cy="40" r="33"/>
+              <polygon points="40,23 51,27 57,40 51,53 40,57 29,53 23,40 29,27"/>
+              <line x1="40" y1="7" x2="40" y2="23"/><line x1="64" y1="16" x2="51" y2="27"/>
+              <line x1="73" y1="40" x2="57" y2="40"/><line x1="64" y1="64" x2="51" y2="53"/>
+              <line x1="40" y1="73" x2="40" y2="57"/><line x1="16" y1="64" x2="29" y2="53"/>
+              <line x1="7" y1="40" x2="23" y2="40"/><line x1="16" y1="16" x2="29" y2="27"/>
+            </svg>
           </div>
+          <span class="cut-name">Round</span>
         </div>
 
-        <div class="collection-dots" data-slider-dots aria-label="Collection slide dots"></div>
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="40" cy="40" rx="32" ry="23"/>
+              <ellipse cx="40" cy="40" rx="14" ry="9"/>
+              <line x1="8" y1="40" x2="26" y2="40"/><line x1="72" y1="40" x2="54" y2="40"/>
+              <line x1="40" y1="17" x2="40" y2="31"/><line x1="40" y1="63" x2="40" y2="49"/>
+              <line x1="16" y1="24" x2="27" y2="32"/><line x1="64" y1="24" x2="53" y2="32"/>
+              <line x1="64" y1="56" x2="53" y2="48"/><line x1="16" y1="56" x2="27" y2="48"/>
+            </svg>
+          </div>
+          <span class="cut-name">Oval</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40,74 C23,60 7,48 7,30 A24,24 0 0,1 73,30 C73,48 57,60 40,74Z"/>
+              <path d="M40,62 C28,51 17,44 17,30 A16,16 0 0,1 63,30 C63,44 52,51 40,62Z"/>
+              <line x1="40" y1="6" x2="40" y2="14"/><line x1="40" y1="74" x2="40" y2="62"/>
+              <line x1="7" y1="30" x2="17" y2="30"/><line x1="73" y1="30" x2="63" y2="30"/>
+              <line x1="17" y1="13" x2="22" y2="21"/><line x1="63" y1="13" x2="58" y2="21"/>
+            </svg>
+          </div>
+          <span class="cut-name">Pear</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23,10 L57,10 L65,18 L65,62 L57,70 L23,70 L15,62 L15,18Z"/>
+              <path d="M29,18 L51,18 L59,25 L59,55 L51,62 L29,62 L21,55 L21,25Z"/>
+              <line x1="23" y1="10" x2="29" y2="18"/><line x1="57" y1="10" x2="51" y2="18"/>
+              <line x1="65" y1="18" x2="59" y2="25"/><line x1="65" y1="62" x2="59" y2="55"/>
+              <line x1="57" y1="70" x2="51" y2="62"/><line x1="23" y1="70" x2="29" y2="62"/>
+              <line x1="15" y1="62" x2="21" y2="55"/><line x1="15" y1="18" x2="21" y2="25"/>
+              <line x1="15" y1="40" x2="21" y2="40"/><line x1="65" y1="40" x2="59" y2="40"/>
+            </svg>
+          </div>
+          <span class="cut-name">Emerald</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M26,12 L54,12 L68,26 L68,54 L54,68 L26,68 L12,54 L12,26Z"/>
+              <path d="M31,21 L49,21 L59,31 L59,49 L49,59 L31,59 L21,49 L21,31Z"/>
+              <path d="M35,31 L45,31 L49,35 L49,45 L45,49 L35,49 L31,45 L31,35Z"/>
+              <line x1="26" y1="12" x2="31" y2="21"/><line x1="54" y1="12" x2="49" y2="21"/>
+              <line x1="68" y1="26" x2="59" y2="31"/><line x1="68" y1="54" x2="59" y2="49"/>
+              <line x1="54" y1="68" x2="49" y2="59"/><line x1="26" y1="68" x2="31" y2="59"/>
+              <line x1="12" y1="54" x2="21" y2="49"/><line x1="12" y1="26" x2="21" y2="31"/>
+            </svg>
+          </div>
+          <span class="cut-name">Asscher</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14,25 Q14,13 25,13 L55,13 Q67,13 67,25 L67,55 Q67,67 55,67 L25,67 Q13,67 13,55Z"/>
+              <path d="M23,31 Q23,23 31,23 L49,23 Q57,23 57,31 L57,49 Q57,57 49,57 L31,57 Q23,57 23,49Z"/>
+              <line x1="14" y1="25" x2="23" y2="31"/><line x1="67" y1="25" x2="57" y2="31"/>
+              <line x1="67" y1="55" x2="57" y2="49"/><line x1="13" y1="55" x2="23" y2="49"/>
+              <line x1="40" y1="13" x2="40" y2="23"/><line x1="40" y1="57" x2="40" y2="67"/>
+              <line x1="13" y1="40" x2="23" y2="40"/><line x1="57" y1="40" x2="67" y2="40"/>
+            </svg>
+          </div>
+          <span class="cut-name">Cushion</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="13" y="13" width="54" height="54"/>
+              <rect x="25" y="25" width="30" height="30"/>
+              <line x1="13" y1="13" x2="25" y2="25"/><line x1="67" y1="13" x2="55" y2="25"/>
+              <line x1="67" y1="67" x2="55" y2="55"/><line x1="13" y1="67" x2="25" y2="55"/>
+              <line x1="40" y1="13" x2="40" y2="25"/><line x1="67" y1="40" x2="55" y2="40"/>
+              <line x1="40" y1="55" x2="40" y2="67"/><line x1="13" y1="40" x2="25" y2="40"/>
+            </svg>
+          </div>
+          <span class="cut-name">Princess</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20,11 L60,11 L69,20 L69,60 L60,69 L20,69 L11,60 L11,20Z"/>
+              <path d="M26,19 L54,19 L62,27 L62,53 L54,61 L26,61 L18,53 L18,27Z"/>
+              <line x1="40" y1="40" x2="11" y2="20"/><line x1="40" y1="40" x2="20" y2="11"/>
+              <line x1="40" y1="40" x2="60" y2="11"/><line x1="40" y1="40" x2="69" y2="20"/>
+              <line x1="40" y1="40" x2="69" y2="60"/><line x1="40" y1="40" x2="60" y2="69"/>
+              <line x1="40" y1="40" x2="20" y2="69"/><line x1="40" y1="40" x2="11" y2="60"/>
+            </svg>
+          </div>
+          <span class="cut-name">Radiant</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40,5 Q70,40 40,75 Q10,40 40,5Z"/>
+              <path d="M40,17 Q62,40 40,63 Q18,40 40,17Z"/>
+              <line x1="40" y1="5" x2="40" y2="17"/><line x1="40" y1="63" x2="40" y2="75"/>
+              <line x1="10" y1="40" x2="18" y2="40"/><line x1="70" y1="40" x2="62" y2="40"/>
+              <line x1="58" y1="19" x2="53" y2="29"/><line x1="22" y1="19" x2="27" y2="29"/>
+              <line x1="58" y1="61" x2="53" y2="51"/><line x1="22" y1="61" x2="27" y2="51"/>
+            </svg>
+          </div>
+          <span class="cut-name">Marquise</span>
+        </div>
+
+        <div class="cut-item reveal" role="listitem">
+          <div class="cut-svg" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M40,68 C20,53 4,41 4,27 C4,15 16,9 28,16 Q34,20 40,27 Q46,20 52,16 C64,9 76,15 76,27 C76,41 60,53 40,68Z"/>
+              <path d="M40,56 C24,44 14,35 14,26 C14,20 20,17 28,22 Q34,27 40,34 Q46,27 52,22 C60,17 66,20 66,26 C66,35 56,44 40,56Z"/>
+              <line x1="40" y1="27" x2="40" y2="34"/><line x1="40" y1="56" x2="40" y2="68"/>
+              <line x1="4" y1="27" x2="14" y2="26"/><line x1="76" y1="27" x2="66" y2="26"/>
+              <line x1="13" y1="12" x2="20" y2="19"/><line x1="67" y1="12" x2="60" y2="19"/>
+            </svg>
+          </div>
+          <span class="cut-name">Heart</span>
+        </div>
+
       </div>
     </section>
 
-    <section class="section featured-section" id="featured">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Featured pieces</p>
-        <h2>Signature designs with unmistakable presence.</h2>
+    <!-- ═══════ COLLECTION (CATEGORISED) ═══════ -->
+    <section class="collection" id="collection">
+      <div class="collection-header reveal">
+        <p class="eyebrow">The Portfolio</p>
+        <h2>A world of<br /><em>fine diamonds</em></h2>
+        <p class="collection-sub">Each piece is a testament to craftsmanship - explore by category below.</p>
       </div>
 
-      <div class="product-grid">
-        <article class="product-card reveal">
-          <img src="assets/collection/emerald-drop-necklace.jpeg" alt="Emerald drop necklace with diamond details" loading="lazy">
-          <div>
-            <p>Emerald Drop Necklace</p>
-            <span>Rose-gold warmth, emerald depth, and a diamond-lit centreline.</span>
-          </div>
-        </article>
-        <article class="product-card reveal">
-          <img src="assets/collection/marquise-gold-ring.jpeg" alt="Gold ring with marquise diamond leaf details" loading="lazy">
-          <div>
-            <p>Marquise Gold Ring</p>
-            <span>Layered gold bands finished with delicate marquise diamonds.</span>
-          </div>
-        </article>
-        <article class="product-card reveal">
-          <img src="assets/collection/blue-sapphire-ring.jpeg" alt="Blue sapphire ring framed by diamond petals" loading="lazy">
-          <div>
-            <p>Sapphire Halo Ring</p>
-            <span>A vivid blue centre framed by crisp white diamond petals.</span>
-          </div>
-        </article>
+      <!-- Category tabs -->
+      <div class="cat-tabs" role="tablist" aria-label="Filter collection by category">
+        <button class="cat-tab active" role="tab" aria-selected="true"  data-cat="all">All</button>
+        <button class="cat-tab"         role="tab" aria-selected="false" data-cat="rings">Rings</button>
+        <button class="cat-tab"         role="tab" aria-selected="false" data-cat="necklaces">Necklaces</button>
+        <button class="cat-tab"         role="tab" aria-selected="false" data-cat="bracelets">Bracelets</button>
+      </div>
+
+      <div class="collection-grid" id="collection-grid" role="list" aria-live="polite"></div>
+    </section>
+
+    <!-- ═══════ CRAFT (video background) ═══════ -->
+    <section class="craft" id="craft" aria-label="Craftsmanship">
+      <div class="craft-media" aria-hidden="true">
+        <video autoplay muted loop playsinline class="craft-video">
+          <source src="assets/collection/atelier-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="craft-overlay"></div>
+      </div>
+      <div class="craft-content reveal">
+        <p class="eyebrow eyebrow--light">The Art of Making</p>
+        <h2 class="craft-heading">Crafted by<br /><em>master hands</em></h2>
+        <p>Each piece at Maahiraa Diamonds undergoes an intimate journey - from the selection of ethically sourced, certified gems to the final polish by our master goldsmiths. We honour traditional techniques while embracing contemporary design, creating jewellery that speaks across generations.</p>
+        <a href="#contact" class="btn-gold">Begin Your Journey</a>
       </div>
     </section>
 
-    <section class="section why-section" aria-label="Why choose Maahiraa Diamonds">
-      <div class="section-inner">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Assurance</p>
-          <h2>Every detail held to a higher standard.</h2>
-        </div>
-
-        <div class="trust-grid">
-          <article class="trust-item reveal">
-            <span aria-hidden="true">01</span>
-            <h3>Certified Quality</h3>
-            <p>Diamond and material selections are reviewed for authenticity, finish, and lasting value.</p>
-          </article>
-          <article class="trust-item reveal">
-            <span aria-hidden="true">02</span>
-            <h3>Master Craftsmanship</h3>
-            <p>Precise setting, graceful proportions, and refined finishing define every Maahiraa piece.</p>
-          </article>
-          <article class="trust-item reveal">
-            <span aria-hidden="true">03</span>
-            <h3>Personal Guidance</h3>
-            <p>Considered consultation helps each client choose jewellery with confidence and intention.</p>
-          </article>
-        </div>
+    <!-- ═══════ REVIEWS ═══════ -->
+    <section class="reviews" aria-label="Client testimonials">
+      <div class="reviews-header reveal">
+        <p class="eyebrow">Client Stories</p>
+        <h2>Words from our <em>clients</em></h2>
       </div>
-    </section>
+      <div class="reviews-grid">
 
-    <section class="section testimonials-section" aria-label="Client testimonials">
-      <div class="testimonial-shell reveal">
-        <p class="eyebrow">Client notes</p>
-        <div class="testimonial-slider" data-slider>
-          <blockquote class="testimonial active">
-            <p>Maahiraa made the entire experience feel intimate, elegant, and completely trustworthy. The diamond work is stunning.</p>
-            <cite>Priya S.</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p>Beautiful craftsmanship and excellent guidance. The piece felt personal from the first consultation.</p>
-            <cite>Ananya R.</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p>Quiet luxury at its best. The finishing, packaging, and service all felt premium.</p>
-            <cite>Meera K.</cite>
-          </blockquote>
-        </div>
-        <div class="slider-dots" aria-label="Testimonial controls" data-dots></div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="section-inner contact-layout">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Private appointment</p>
-          <h2>Begin with a conversation.</h2>
-          <p>Share the occasion, inspiration, or piece you are looking for. Maahiraa Diamonds will respond with careful guidance.</p>
-          <div class="contact-actions">
-            <a href="mailto:founder@maahiraadiamonds.com">founder@maahiraadiamonds.com</a>
-            <a href="https://wa.me/917525906655?text=Hello%20Maahiraa%20Diamonds%2C%20I%20would%20like%20to%20explore%20your%20collection." target="_blank" rel="noopener">WhatsApp enquiry</a>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"From the moment I walked in, I knew I was in the right place. Chirag's understanding of what I wanted was remarkable - my bridal set is absolutely breathtaking."</p>
+          <div class="review-author">
+            <span class="review-name">Priya Sharma</span>
+            <span class="review-piece">Bridal Diamond Set</span>
           </div>
         </div>
 
-        <form class="contact-form reveal" data-contact-form>
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required>
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-          <label>
-            <span>Interest</span>
-            <select name="interest" required>
-              <option value="">Select a collection</option>
-              <option>Gold jewellery</option>
-              <option>Silver jewellery</option>
-              <option>Diamond jewellery</option>
-              <option>Custom consultation</option>
-            </select>
-          </label>
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4" required></textarea>
-          </label>
-          <button class="button button-primary" type="submit">Send Enquiry</button>
-          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
-        </form>
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"Maahiraa Diamonds transformed my grandmother's heirloom into a stunning modern piece. The attention to detail and the quality of the GIA-certified stones is unmatched."</p>
+          <div class="review-author">
+            <span class="review-name">Anjali Mehta</span>
+            <span class="review-piece">Heirloom Redesign</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"My engagement ring is beyond everything I imagined. The emerald cut is absolutely flawless - every time I look at it, I fall in love all over again."</p>
+          <div class="review-author">
+            <span class="review-name">Riya Kapoor</span>
+            <span class="review-piece">Emerald Cut Solitaire</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"The custom necklace Chirag designed for our anniversary was a true work of art. The IGI-certified stone he sourced was beyond exceptional in every way."</p>
+          <div class="review-author">
+            <span class="review-name">Neha Patel</span>
+            <span class="review-piece">Custom Diamond Necklace</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"I've purchased from many fine jewellers, but Maahiraa Diamonds stands apart entirely. The bespoke experience, the quality, and Chirag's personal attention made it truly special."</p>
+          <div class="review-author">
+            <span class="review-name">Meera Rajput</span>
+            <span class="review-piece">Bespoke Diamond Ring</span>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-text">"The riviera necklace I commissioned took my breath away. Every facet is perfection. The craftsmanship at Maahiraa Diamonds is extraordinary - worth every single penny."</p>
+          <div class="review-author">
+            <span class="review-name">Sunita Agarwal</span>
+            <span class="review-piece">Diamond Riviera Necklace</span>
+          </div>
+        </div>
+
       </div>
     </section>
+
+    <!-- ═══════ BRAND VALUES ═══════ -->
+    <section class="values" aria-label="Brand values">
+      <div class="values-grid">
+        <div class="value-item reveal">
+          <div class="value-icon" aria-hidden="true">◆</div>
+          <h3>Triple Certified</h3>
+          <p>Every diamond we use is independently certified by IGI, GIA, or HRD - three of the world's most respected gemological institutes - guaranteeing authenticity, cut, clarity, and carat.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-icon" aria-hidden="true">◆</div>
+          <h3>Finest Gold</h3>
+          <p>We craft exclusively in 14K and 18K gold - chosen for their superior durability, lustre, and precious metal content. Custom gold alloy options are available on request.</p>
+        </div>
+        <div class="value-item reveal">
+          <div class="value-icon" aria-hidden="true">◆</div>
+          <h3>Custom Design</h3>
+          <p>Bring your vision to life. We offer fully bespoke design consultations where Chirag Puri personally works with you to craft a one-of-a-kind piece that is uniquely yours.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ CUSTOM DESIGN CTA BAND ═══════ -->
+    <div class="custom-band reveal">
+      <div class="custom-band-inner">
+        <p class="eyebrow eyebrow--light">Bespoke Service</p>
+        <h3>Have a design in mind?<br /><em>We'll bring it to life.</em></h3>
+        <p>From a sketch on a napkin to a fully realised heirloom - our custom design service makes your dream jewellery a reality.</p>
+        <a href="#contact" class="btn-gold">Enquire About Custom Design</a>
+      </div>
+    </div>
+
+    <!-- ═══════ CONTACT ═══════ -->
+    <section class="contact" id="contact" aria-label="Contact">
+      <div class="contact-deco" aria-hidden="true">
+        <span class="contact-deco-line"></span>
+        <span class="contact-deco-diamond">◆</span>
+        <span class="contact-deco-line"></span>
+      </div>
+      <div class="contact-inner reveal">
+        <p class="eyebrow">Connect With Us</p>
+        <h2>Begin your<br /><em>story with us</em></h2>
+        <p class="contact-sub">Whether you seek a bespoke creation, wish to collaborate, or simply want to explore our portfolio - we would love to hear from you.</p>
+        <div class="contact-cards">
+          <a href="mailto:founder@maahiraadiamonds.com" class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">@</div>
+            <span class="contact-card-label">Email</span>
+            <span class="contact-card-val contact-card-val--email">founder@maahiraadiamonds.com</span>
+          </a>
+          <a href="https://wa.me/917525906655" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-card-icon" aria-hidden="true">WA</div>
+            <span class="contact-card-label">WhatsApp</span>
+            <span class="contact-card-val">+91 7525 906 655</span>
+          </a>
+          <a href="https://instagram.com/maahiraa.diamonds" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-card-icon" aria-hidden="true">IG</div>
+            <span class="contact-card-label">Instagram</span>
+            <span class="contact-card-val">@maahiraa.diamonds</span>
+          </a>
+          <div class="contact-card">
+            <div class="contact-card-icon" aria-hidden="true">IN</div>
+            <span class="contact-card-label">Address</span>
+            <span class="contact-card-val">G Block BKC, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051, India</span>
+          </div>
+        </div>
+        <p class="contact-founder">A <strong>Chirag Puri</strong> Atelier &nbsp;|&nbsp; Mumbai, India</p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer">
-    <div>
-      <a class="footer-brand" href="#home">Maahiraa Diamonds</a>
-      <p>Fine jewellery in gold, silver, and diamonds.</p>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/md-logo-no-bg.png" alt="Maahiraa Diamonds" width="64" height="64" />
+        <span>Maahiraa Diamonds</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#about">Story</a>
+        <a href="#collection">Collection</a>
+        <a href="#craft">Craft</a>
+        <a href="#contact">Connect</a>
+      </nav>
+      <p class="footer-copy">&copy; <span data-year></span> Maahiraa Diamonds by Chirag Puri. All rights reserved.</p>
     </div>
-    <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#collections">Collections</a>
-      <a href="#contact">Contact</a>
-      <a href="#" aria-label="Instagram placeholder">Instagram</a>
-      <a href="#" aria-label="Facebook placeholder">Facebook</a>
-    </div>
-    <p class="copyright">© <span data-year></span> Maahiraa Diamonds. All rights reserved.</p>
   </footer>
 
-  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Jewellery image preview" data-lightbox-modal>
-    <button class="lightbox-close" type="button" aria-label="Close preview" data-lightbox-close>Close</button>
-    <img src="" alt="Selected jewellery preview" data-lightbox-image>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image preview">&times;</button>
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <video class="lightbox-video" id="lightbox-video" controls playsinline hidden></video>
   </div>
 
   <script src="script.js"></script>

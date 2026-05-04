@@ -1,257 +1,256 @@
-const header = document.querySelector("[data-header]");
-const navToggle = document.querySelector("[data-nav-toggle]");
-const navPanel = document.querySelector("[data-nav-panel]");
-const revealItems = document.querySelectorAll(".reveal");
-const heroMedia = document.querySelector(".hero-media");
-const lightbox = document.querySelector("[data-lightbox-modal]");
-const lightboxImage = document.querySelector("[data-lightbox-image]");
-const lightboxClose = document.querySelector("[data-lightbox-close]");
-const lightboxTriggers = document.querySelectorAll("[data-lightbox]");
-const collectionSlider = document.querySelector("[data-collection-slider]");
-const testimonials = document.querySelectorAll(".testimonial");
-const dotsContainer = document.querySelector("[data-dots]");
-const contactForm = document.querySelector("[data-contact-form]");
-const formStatus = document.querySelector("[data-form-status]");
+/* ============================================================
+   MAAHIRAA DIAMONDS - Script
+   ============================================================ */
 
-const setHeaderState = () => {
-  header.classList.toggle("scrolled", window.scrollY > 24);
+'use strict';
 
-  if (heroMedia) {
-    heroMedia.style.setProperty("--parallax", Math.min(window.scrollY * 0.16, 90));
-  }
-};
-
-setHeaderState();
-window.addEventListener("scroll", setHeaderState, { passive: true });
-
-navToggle.addEventListener("click", () => {
-  const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-  navToggle.setAttribute("aria-expanded", String(!isOpen));
-  navPanel.classList.toggle("open", !isOpen);
-  document.body.classList.toggle("nav-open", !isOpen);
+/* --- Footer year ------------------------------------------ */
+document.querySelectorAll('[data-year]').forEach(el => {
+  el.textContent = new Date().getFullYear();
 });
 
-navPanel.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navToggle.setAttribute("aria-expanded", "false");
-    navPanel.classList.remove("open");
-    document.body.classList.remove("nav-open");
-  });
-});
+/* --- Nav: scroll state ------------------------------------ */
+const nav = document.getElementById('nav');
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.16, rootMargin: "0px 0px -40px 0px" }
-);
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+}
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
 
-revealItems.forEach((item) => revealObserver.observe(item));
+/* --- Nav: mobile toggle ----------------------------------- */
+const toggle    = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('nav-mobile');
 
-const openLightbox = (src) => {
-  lightboxImage.src = src;
-  lightbox.classList.add("open");
-  lightbox.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-  lightboxClose.focus();
-};
-
-const closeLightbox = () => {
-  lightbox.classList.remove("open");
-  lightbox.setAttribute("aria-hidden", "true");
-  lightboxImage.src = "";
-  document.body.style.overflow = "";
-};
-
-lightboxTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", () => openLightbox(trigger.dataset.lightbox));
-});
-
-lightboxClose.addEventListener("click", closeLightbox);
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) closeLightbox();
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && lightbox.classList.contains("open")) {
-    closeLightbox();
-  }
-});
-
-if (collectionSlider) {
-  const viewport = collectionSlider.querySelector("[data-slider-viewport]");
-  const slides = [...collectionSlider.querySelectorAll(".collection-slide")];
-  const prev = collectionSlider.querySelector("[data-slider-prev]");
-  const next = collectionSlider.querySelector("[data-slider-next]");
-  const dots = collectionSlider.querySelector("[data-slider-dots]");
-  const videoCards = [...collectionSlider.querySelectorAll("[data-video-card]")];
-  let activeSlide = 0;
-  let scrollTimeout;
-
-  const playCardVideo = (card) => {
-    const video = card.querySelector("video");
-    if (!video) return;
-    card.classList.add("playing");
-    video.play().catch(() => {
-      card.classList.remove("playing");
-    });
-  };
-
-  const pauseCardVideo = (card) => {
-    const video = card.querySelector("video");
-    if (!video) return;
-    video.pause();
-    card.classList.remove("playing");
-  };
-
-  const pauseInactiveVideos = (activeCard) => {
-    videoCards.forEach((card) => {
-      if (card !== activeCard) pauseCardVideo(card);
-    });
-  };
-
-  const scrollToSlide = (index) => {
-    const slide = slides[index];
-    if (!slide) return;
-    viewport.scrollTo({ left: slide.offsetLeft, behavior: "smooth" });
-  };
-
-  const updateDots = (index) => {
-    activeSlide = index;
-    [...dots.children].forEach((dot, dotIndex) => {
-      dot.classList.toggle("active", dotIndex === index);
-    });
-  };
-
-  const detectActiveSlide = () => {
-    const viewportCenter = viewport.scrollLeft + viewport.clientWidth / 2;
-    const closest = slides.reduce(
-      (best, slide, index) => {
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const distance = Math.abs(slideCenter - viewportCenter);
-        return distance < best.distance ? { index, distance } : best;
-      },
-      { index: 0, distance: Infinity }
-    );
-
-    updateDots(closest.index);
-  };
-
-  slides.forEach((_, index) => {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Go to collection design ${index + 1}`);
-    if (index === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => scrollToSlide(index));
-    dots.append(dot);
-  });
-
-  prev.addEventListener("click", () => {
-    scrollToSlide(Math.max(activeSlide - 1, 0));
-  });
-
-  next.addEventListener("click", () => {
-    scrollToSlide(Math.min(activeSlide + 1, slides.length - 1));
-  });
-
-  viewport.addEventListener("scroll", () => {
-    window.clearTimeout(scrollTimeout);
-    scrollTimeout = window.setTimeout(detectActiveSlide, 80);
-  }, { passive: true });
-
-  viewport.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") scrollToSlide(Math.min(activeSlide + 1, slides.length - 1));
-    if (event.key === "ArrowLeft") scrollToSlide(Math.max(activeSlide - 1, 0));
-  });
-
-  videoCards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      pauseInactiveVideos(card);
-      playCardVideo(card);
-    });
-    card.addEventListener("mouseleave", () => pauseCardVideo(card));
-    card.addEventListener("focus", () => {
-      pauseInactiveVideos(card);
-      playCardVideo(card);
-    });
-    card.addEventListener("blur", () => pauseCardVideo(card));
-    card.addEventListener("click", () => {
-      const video = card.querySelector("video");
-      if (!video) return;
-      const isTouchLike = window.matchMedia("(hover: none)").matches;
-      pauseInactiveVideos(card);
-      if (isTouchLike && !video.paused) return;
-      if (video.paused) {
-        playCardVideo(card);
-      } else {
-        pauseCardVideo(card);
-      }
-    });
-  });
-
-  const videoObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const card = entry.target;
-        const sliderBox = collectionSlider.getBoundingClientRect();
-        const sliderVisible = sliderBox.bottom > 0 && sliderBox.top < window.innerHeight;
-        if (entry.isIntersecting && sliderVisible && window.matchMedia("(hover: none)").matches) {
-          pauseInactiveVideos(card);
-          playCardVideo(card);
-        } else if (!entry.isIntersecting) {
-          pauseCardVideo(card);
-        }
-      });
-    },
-    { root: viewport, threshold: 0.62 }
-  );
-
-  videoCards.forEach((card) => videoObserver.observe(card));
+function closeMenu() {
+  toggle.classList.remove('open');
+  mobileNav.classList.remove('open');
+  mobileNav.setAttribute('aria-hidden', 'true');
+  toggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
 }
 
-let activeTestimonial = 0;
-let testimonialTimer;
+toggle.addEventListener('click', () => {
+  const isOpen = toggle.classList.toggle('open');
+  mobileNav.classList.toggle('open', isOpen);
+  mobileNav.setAttribute('aria-hidden', String(!isOpen));
+  toggle.setAttribute('aria-expanded', String(isOpen));
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
 
-const showTestimonial = (index) => {
-  testimonials[activeTestimonial].classList.remove("active");
-  dotsContainer.children[activeTestimonial].classList.remove("active");
-  activeTestimonial = index;
-  testimonials[activeTestimonial].classList.add("active");
-  dotsContainer.children[activeTestimonial].classList.add("active");
-};
+mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
-const startTestimonials = () => {
-  testimonialTimer = window.setInterval(() => {
-    showTestimonial((activeTestimonial + 1) % testimonials.length);
-  }, 5200);
-};
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (mobileNav.classList.contains('open')) closeMenu();
+    if (!lightbox.hidden) closeLightbox();
+  }
+});
 
-testimonials.forEach((_, index) => {
-  const dot = document.createElement("button");
-  dot.type = "button";
-  dot.setAttribute("aria-label", `Show testimonial ${index + 1}`);
-  if (index === 0) dot.classList.add("active");
-  dot.addEventListener("click", () => {
-    window.clearInterval(testimonialTimer);
-    showTestimonial(index);
-    startTestimonials();
+/* --- Reveal on scroll ------------------------------------- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
   });
-  dotsContainer.append(dot);
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* --- Collection media paths ------------------------------- */
+/*
+  To update the portfolio, edit only these path/title/type entries.
+  Keep six items per category. Alternate type: 'image', 'video', 'image', 'video', ...
+*/
+const collectionItems = {
+  rings: [
+    { type: 'image', title: 'Sapphire Petal', src: 'assets/collection/blue-sapphire-ring.jpeg', alt: 'Blue sapphire ring with diamond petal setting' },
+    { type: 'video', title: 'Ring Motion 01', src: 'assets/collection/collection-motion-07.mp4', alt: 'Diamond ring motion preview' },
+    { type: 'image', title: 'Crown Solitaire', src: 'assets/collection/diamond-crown-ring.jpeg', alt: 'Diamond crown solitaire ring' },
+    { type: 'video', title: 'Ring Motion 02', src: 'assets/collection/collection-motion-05.mp4', alt: 'Gold diamond ring motion preview' },
+    { type: 'image', title: 'Emerald Halo', src: 'assets/collection/emerald-halo-ring.jpeg', alt: 'Emerald halo ring with diamond setting' },
+    { type: 'video', title: 'Ring Motion 03', src: 'assets/collection/collection-motion-06.mp4', alt: 'Fine ring motion preview' },
+  ],
+  necklaces: [
+    { type: 'image', title: 'Diamond Riviera', src: 'assets/collection/emerald-drop-necklace.jpeg', alt: 'Diamond riviera necklace' },
+    { type: 'video', title: 'Necklace Motion 01', src: 'assets/collection/collection-motion-02.mp4', alt: 'Diamond necklace motion preview' },
+    { type: 'image', title: 'Emerald Drop', src: 'assets/collection/red-d-neck.jpeg', alt: 'Emerald drop pendant necklace' },
+    { type: 'video', title: 'Necklace Motion 02', src: 'assets/collection/collection-motion-03.mp4', alt: 'Gemstone necklace motion preview' },
+    { type: 'image', title: 'Ruby Statement', src: 'assets/collection/d-neck.jpeg', alt: 'Ruby statement necklace with diamonds' },
+    { type: 'video', title: 'Necklace Motion 03', src: 'assets/collection/collection-motion-01.mp4', alt: 'Statement necklace motion preview' },
+  ],
+  bracelets: [
+    { type: 'image', title: 'Diamond Tennis', src: 'assets/collection/diamond-bracelet.jpeg', alt: 'Diamond tennis bracelet' },
+    { type: 'video', title: 'Bracelet Motion 01', src: 'assets/collection/brace5.mp4', alt: 'Diamond bracelet motion preview' },
+    { type: 'image', title: 'Rose Gold Bangle', src: 'assets/collection/rose-gold-bracelet.jpeg', alt: 'Rose gold diamond bangle bracelet' },
+    { type: 'video', title: 'Bracelet Motion 02', src: 'assets/collection/brace4.mp4', alt: 'Rose gold bracelet motion preview' },
+    { type: 'image', title: 'Crown Detail', src: 'assets/collection/ruby-statement-necklace.jpeg', alt: 'Diamond facet detail used as bracelet inspiration placeholder' },
+    { type: 'video', title: 'Bracelet Motion 03', src: 'assets/collection/brace3.mp4', alt: 'Bracelet atelier motion preview' },
+  ],
+};
+
+const categoryLabels = {
+  rings: 'Rings',
+  necklaces: 'Necklaces',
+  bracelets: 'Bracelets',
+};
+
+const collectionGrid = document.getElementById('collection-grid');
+const catTabs = document.querySelectorAll('.cat-tab');
+const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+function mediaMarkup(item) {
+  if (item.type === 'video') {
+    return `
+      <video class="grid-media" muted loop playsinline preload="metadata" aria-label="${item.alt}">
+        <source src="${item.src}" type="video/mp4" />
+      </video>
+      <span class="grid-video-badge" aria-hidden="true">Play</span>
+    `;
+  }
+
+  return `<img class="grid-media" src="${item.src}" alt="${item.alt}" loading="lazy" />`;
+}
+
+function createCollectionItem(item, category) {
+  const article = document.createElement('article');
+  article.className = 'grid-item';
+  article.dataset.category = category;
+  article.dataset.type = item.type;
+  article.dataset.src = item.src;
+  article.dataset.alt = item.alt;
+  article.setAttribute('role', 'listitem');
+  article.tabIndex = 0;
+  article.setAttribute('aria-label', `View ${item.title}`);
+  article.innerHTML = `
+    ${mediaMarkup(item)}
+    <div class="grid-item-info" aria-hidden="true">
+      <p>${item.title}</p>
+      <span>${categoryLabels[category]}</span>
+    </div>
+  `;
+  return article;
+}
+
+function renderCollection(category = 'all') {
+  const categories = category === 'all' ? Object.keys(collectionItems) : [category];
+  const fragment = document.createDocumentFragment();
+
+  categories.forEach(cat => {
+    collectionItems[cat].slice(0, 6).forEach(item => {
+      fragment.appendChild(createCollectionItem(item, cat));
+    });
+  });
+
+  collectionGrid.replaceChildren(fragment);
+  bindCollectionItems();
+}
+
+catTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const cat = tab.dataset.cat;
+
+    catTabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+
+    renderCollection(cat);
+  });
 });
 
-startTestimonials();
+/* --- Lightbox --------------------------------------------- */
+const lightbox      = document.getElementById('lightbox');
+const lightboxImg   = document.getElementById('lightbox-img');
+const lightboxVideo = document.getElementById('lightbox-video');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxBdrop = document.getElementById('lightbox-backdrop');
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(contactForm);
-  const name = data.get("name");
-  formStatus.textContent = `Thank you, ${name}. Your enquiry is ready for the Maahiraa Diamonds team.`;
-  contactForm.reset();
-});
+let lastFocused = null;
 
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+function openLightbox(src, alt, type = 'image') {
+  lastFocused = document.activeElement;
+  if (type === 'video') {
+    lightboxImg.hidden = true;
+    lightboxImg.src = '';
+    lightboxVideo.hidden = false;
+    lightboxVideo.src = src;
+    lightboxVideo.setAttribute('aria-label', alt || '');
+    lightboxVideo.play().catch(() => {});
+  } else {
+    lightboxVideo.pause();
+    lightboxVideo.hidden = true;
+    lightboxVideo.removeAttribute('src');
+    lightboxImg.hidden = false;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+  }
+  lightbox.hidden = false;
+  document.body.style.overflow = 'hidden';
+  lightboxClose.focus();
+}
+
+function closeLightbox() {
+  lightbox.hidden = true;
+  lightboxImg.src = '';
+  lightboxImg.hidden = false;
+  lightboxVideo.pause();
+  lightboxVideo.hidden = true;
+  lightboxVideo.removeAttribute('src');
+  document.body.style.overflow = '';
+  if (lastFocused) lastFocused.focus();
+}
+
+function playTileVideo(item) {
+  const video = item.querySelector('video');
+  if (video) video.play().catch(() => {});
+}
+
+function pauseTileVideo(item) {
+  const video = item.querySelector('video');
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+}
+
+function bindCollectionItems() {
+  document.querySelectorAll('.grid-item').forEach(item => {
+    if (item.dataset.type === 'video') {
+      item.addEventListener('mouseenter', () => playTileVideo(item));
+      item.addEventListener('mouseleave', () => pauseTileVideo(item));
+      item.addEventListener('focus', () => playTileVideo(item));
+      item.addEventListener('blur', () => pauseTileVideo(item));
+    }
+
+    item.addEventListener('click', () => {
+      const src = item.dataset.src;
+      const alt = item.dataset.alt || '';
+      const type = item.dataset.type || 'image';
+
+      if (isTouchDevice && type === 'video' && !item.classList.contains('is-previewing')) {
+        document.querySelectorAll('.grid-item.is-previewing').forEach(activeItem => {
+          activeItem.classList.remove('is-previewing');
+          pauseTileVideo(activeItem);
+        });
+        item.classList.add('is-previewing');
+        playTileVideo(item);
+        return;
+      }
+
+      if (src) openLightbox(src, alt, type);
+    });
+
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+    });
+  });
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxBdrop.addEventListener('click', closeLightbox);
+renderCollection();
